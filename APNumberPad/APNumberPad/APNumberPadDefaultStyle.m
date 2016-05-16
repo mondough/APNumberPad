@@ -34,7 +34,7 @@ static inline UIColor * APNP_RGBa(int r, int g, int b, CGFloat alpha) {
 #pragma mark - Number button
 
 + (UIFont *)numberButtonFont {
-    return [UIFont fontWithName:@"HelveticaNeue-Light" size:28.f];
+    return [UIFont systemFontOfSize:28.0f];
 }
 
 + (UIColor *)numberButtonTextColor {
@@ -52,7 +52,7 @@ static inline UIColor * APNP_RGBa(int r, int g, int b, CGFloat alpha) {
 #pragma mark - Function button
 
 + (UIFont *)functionButtonFont {
-    return [UIFont fontWithName:@"HelveticaNeue-Light" size:28.f];
+    return [UIFont systemFontOfSize:28.0f];
 }
 
 + (UIColor *)functionButtonTextColor {
