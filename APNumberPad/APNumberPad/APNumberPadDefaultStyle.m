@@ -71,7 +71,7 @@ static inline UIColor * APNP_RGBa(int r, int g, int b, CGFloat alpha) {
     
     NSURL *bundleURL = [[NSBundle bundleForClass:[APNumberPadDefaultStyle class]] URLForResource:@"APNumberPad" withExtension:@"bundle"];
     NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
-    NSString *imagePath = [bundle pathForResource:@"apnumberpad_backspace_icon" ofType:@"png"];
+    NSString *imagePath = [bundle pathForResource:@"backspace" ofType:@"png"];
     UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
     return image;
 }
