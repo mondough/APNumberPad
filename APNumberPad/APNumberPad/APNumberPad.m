@@ -355,6 +355,10 @@
     } else {
         [self.textInput insertText:text];
     }
+    
+    if ([self.delegate respondsToSelector:@selector(numberPad:didInsertText:textInput:)]) {
+        [self.delegate numberPad:self didInsertText:text textInput:self.textInput];
+    }
 }
 
 - (void)clearButtonAction {
@@ -393,6 +397,10 @@
         }
     } else {
         [self.textInput deleteBackward];
+    }
+    
+    if ([self.delegate respondsToSelector:@selector(numberPad:didDeleteBackwardInTextInput:)]) {
+        [self.delegate numberPad:self didDeleteBackwardInTextInput:self.textInput];
     }
 }
 

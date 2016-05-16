@@ -68,7 +68,12 @@ static inline UIColor * APNP_RGBa(int r, int g, int b, CGFloat alpha) {
 }
 
 + (UIImage *)clearFunctionButtonImage {
-    return [UIImage imageNamed:@"APNumberPad.bundle/images/apnumberpad_backspace_icon.png"];
+    
+    NSURL *bundleURL = [[NSBundle bundleForClass:[APNumberPadDefaultStyle class]] URLForResource:@"APNumberPad" withExtension:@"bundle"];
+    NSBundle *bundle = [NSBundle bundleWithURL:bundleURL];
+    NSString *imagePath = [bundle pathForResource:@"apnumberpad_backspace_icon.png" ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    return image;
 }
 
 

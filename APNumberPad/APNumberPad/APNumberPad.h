@@ -41,6 +41,10 @@
 
 @optional
 
+- (void)numberPad:(APNumberPad *)numberPad didInsertText:(NSString *)text textInput:(UIResponder<UITextInput> *)textInput;
+
+- (void)numberPad:(APNumberPad *)numberPad didDeleteBackwardInTextInput:(UIResponder<UITextInput> *)textInput;
+
 - (void)numberPad:(APNumberPad *)numberPad functionButtonAction:(UIButton *)functionButton textInput:(UIResponder<UITextInput> *)textInput;
 
 @end
