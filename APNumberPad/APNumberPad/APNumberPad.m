@@ -330,11 +330,14 @@
 #pragma mark - Actions
 
 - (void)numberButtonAction:(UIButton *)sender {
+    NSString *text = sender.currentTitle;
+
     if (!self.textInput) {
+        if ([self.delegate respondsToSelector:@selector(numberPad:didInsertText:textInput:)]) {
+            [self.delegate numberPad:self didInsertText:text textInput:self.textInput];
+        }
         return;
     }
-    
-    NSString *text = sender.currentTitle;
     
     if (_delegateFlags.textInputSupportsShouldChangeTextInRange) {
         if ([self.textInput shouldChangeTextInRange:self.textInput.selectedTextRange replacementText:text]) {
@@ -363,6 +366,9 @@
 
 - (void)clearButtonAction {
     if (!self.textInput) {
+        if ([self.delegate respondsToSelector:@selector(numberPad:didDeleteBackwardInTextInput:)]) {
+            [self.delegate numberPad:self didDeleteBackwardInTextInput:self.textInput];
+        }
         return;
     }
     
@@ -405,10 +411,6 @@
 }
 
 - (void)functionButtonAction:(id)sender {
-    if (!self.textInput) {
-        return;
-    }
-    
     if ([self.delegate respondsToSelector:@selector(numberPad:functionButtonAction:textInput:)]) {
         [self.delegate numberPad:self functionButtonAction:sender textInput:self.textInput];
     }
